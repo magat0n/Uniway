@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uniway</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNIWAY</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>Uniway</h1>
+    <p>A rota certa para o conhecimento</p>
+    <a href="https://portal.unimar.br/alunos/index/login">Perfil</a>
+  </header> 
 
+  <main>
+    <!-- Mapa -->
+    <section id="mapa-section">
+      <h2>Mapa Interativo</h2>
+      <div id="map"></div>
+    </section>
+
+    <!-- Carrossel -->
+     
+    <section id="carrossel">
+      <h2>📸 Conheça o Campus</h2>
+      <div class="carousel">
+        <img src="https://source.unsplash.com/600x300/?university" alt="Foto campus" class="active">
+        <img src="https://source.unsplash.com/600x300/?library" alt="Foto biblioteca">
+        <img src="https://source.unsplash.com/600x300/?students" alt="Foto estudantes">
+      </div>
+      <button id="prev">⬅️</button>
+      <button id="next">➡️</button>
+    </section>
+
+    <!-- Botão para abrir a aba de comentários -->
+    <section id="comentarios">
+      <button id="abrir-comentarios">💬 Deixe seu comentário</button>
+    </section>
+
+    <!-- Aba de comentários oculta -->
+    <div id="comentarios-aba" class="oculto">
+      <textarea id="mensagem" placeholder="Escreva seu comentário..." required></textarea>
+      <button id="enviar-comentario">Enviar</button>
+      <button id="fechar-comentarios">Fechar</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>🚀 Uniway - Desenvolvido para facilitar sua jornada na UNIMAR</p>
+  </footer>
+
+  <!-- Mapbox JS -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
