@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UNIWAY</title>
   <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
   <header>
-    <h1>Uniway</h1>
+    <h1 id="">Uniway</h1>
     <p>A rota certa para o conhecimento</p>
     <a href="https://portal.unimar.br/alunos/index/login">Perfil</a>
   </header> 
@@ -18,6 +19,7 @@
     <section id="mapa-section">
       <h2>Mapa Interativo</h2>
       <div id="map"></div>
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     </section>
 
     <!-- Carrossel -->
@@ -25,15 +27,21 @@
     <section id="carrossel">
       <h2>📸 Conheça o Campus</h2>
       <div class="carousel">
-        <img src="https://source.unsplash.com/600x300/?university" alt="Foto campus" class="active">
-        <img src="https://source.unsplash.com/600x300/?library" alt="Foto biblioteca">
-        <img src="https://source.unsplash.com/600x300/?students" alt="Foto estudantes">
+        <img src="images/unimar_campus.jpg" alt="Vista aérea do campus da UNIMAR" class="active">
+        <img src="images/unimar_biblio.jpg" alt="Biblioteca da UNIMAR">
+        <img src="images/unimar_alunos.jpg" alt="Estudantes no campus da UNIMAR">
       </div>
       <button id="prev">⬅️</button>
       <button id="next">➡️</button>
     </section>
 
     <!-- Botão para abrir a aba de comentários -->
+    
+  </main>
+
+  <footer>
+    <p>🚀 Uniway - Desenvolvido para facilitar sua jornada na UNIMAR</p>
+
     <section id="comentarios">
       <button id="abrir-comentarios">💬 Deixe seu comentário</button>
     </section>
@@ -44,14 +52,28 @@
       <button id="enviar-comentario">Enviar</button>
       <button id="fechar-comentarios">Fechar</button>
     </div>
-  </main>
-
-  <footer>
-    <p>🚀 Uniway - Desenvolvido para facilitar sua jornada na UNIMAR</p>
   </footer>
 
   <!-- Mapbox JS -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-  <script src="script.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2F1ZWgxcDNyIiwiYSI6ImNsbG8zMDBubDA1bXYzZW4xY3J1aW56cjkifQ.BW8sXRQtfPcAY6zkrsVnRg';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-49.96455, -22.23669], // Coordenadas de Marília, SP
+        zoom: 16, // Nível de zoom
+        interactive: true
+    });
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-49.96455, -22.23669])
+        .addTo(map);
+
+    var popup = new mapboxgl.Popup()
+        .setHTML("<b>Unimar, Campus</b><br>Localização aproximada.")
+        .addTo(map);
+
+    marker.setPopup(popup);
+</script>
 </body>
 </html>
